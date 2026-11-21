@@ -605,8 +605,6 @@ fn extract_notification_data(notif: &windows::UI::Notifications::UserNotificatio
     } else if is_alarm {
         "alarm"
     } else if is_reminder {
-        "call"
-    } else if is_reminder {
         "reminder"
     } else if is_messaging {
         "message"

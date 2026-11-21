@@ -8,9 +8,14 @@ const MODEL = process.env.GEMINI_MODEL ?? "gemini-flash-lite-latest";
 const MODE = process.argv[2] ?? "triage";
 const MEMBERS = new Set(["OWNER", "MEMBER", "COLLABORATOR"]);
 
-if (!TOKEN || !REPO || !KEY) {
-	console.error("GITHUB_TOKEN, GITHUB_REPOSITORY, and GEMINI_API_KEY are required.");
+if (!TOKEN || !REPO) {
+	console.error("GITHUB_TOKEN and GITHUB_REPOSITORY are required.");
 	process.exit(1);
+}
+
+if (!KEY) {
+	console.log("GEMINI_API_KEY is not configured in repository secrets. Skipping AI triage/digest.");
+	process.exit(0);
 }
 
 async function gh(path, { json, headers, ...options } = {}) {
