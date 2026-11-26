@@ -78,8 +78,7 @@ windows = { version = "0.61", features = [
 	"Data_Xml_Dom",
 	"ApplicationModel",
 	"Win32_System_DataExchange",
-	"Win32_System_SystemServices",
-	"implement"
+	"Win32_System_SystemServices"
 ] }
 base64 = "0.22"
 tauri-plugin-autostart = "2.5.1"
